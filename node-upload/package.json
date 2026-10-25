@@ -1,0 +1,8 @@
+{
+  "name": "verse-example-node-upload",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node upload.mjs" },
+  "dependencies": { "@ctruhtech/verse-sdk": "^4.0.0" },
+  "engines": { "node": ">=18" }
+}
