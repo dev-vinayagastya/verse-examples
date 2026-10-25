@@ -1,0 +1,18 @@
+{%- comment -%}
+  Verse 3D viewer for a product page.
+  1. In your theme, create snippets/verse-viewer.liquid with this file's contents.
+  2. Add a product metafield (single line text), e.g. custom.verse_scene, and set it to the scene id.
+  3. In sections/main-product.liquid (or your product template), where the gallery sits, add:
+       {% render 'verse-viewer', product: product %}
+{%- endcomment -%}
+{%- assign scene = product.metafields.custom.verse_scene.value -%}
+{%- if scene != blank -%}
+  <div class="verse-3d" style="margin: 1rem 0">
+    <script src="https://verse.ctruh.com/embed.js" async></script>
+    <verse-viewer
+      src="{{ scene | escape }}"
+      poster="{{ product.featured_image | image_url: width: 1200 }}"
+      loading="tap"
+      aspect="1:1"></verse-viewer>
+  </div>
+{%- endif -%}
